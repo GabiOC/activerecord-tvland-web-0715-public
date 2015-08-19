@@ -1,4 +1,5 @@
 require_relative 'spec_helper'
+require 'pry'
 
 describe "Actor" do
   let(:actor) {Actor.new}
@@ -22,7 +23,7 @@ describe "Actor" do
     khaleesi = Character.new(:name => "Khaleesi")
     khaleesi.actor = emilia
     khaleesi.save
-    
+
     khaleesi.reload
     expect(emilia.characters).to include(khaleesi)
     expect(khaleesi.actor).to eq(emilia)
@@ -51,7 +52,7 @@ describe "Actor" do
   end
 
   it "can list its full name" do
-    # TODO create an instance method on actor called full_name to return first and 
+    # TODO create an instance method on actor called full_name to return first and
     #last name together
     emilia = Actor.new(:first_name => "Emilia", :last_name => "Clarke")
     emilia.save
